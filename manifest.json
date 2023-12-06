@@ -1,0 +1,16 @@
+{
+  "manifest_version" : 3,
+  "name" : "Antivirus Cybershen",
+  "version" : "1.0",
+  "description": "The extension will detect malwares in navigation, will allow us to test URLs, and will check if your passwords have already been used on other websites.",
+  "action" : {
+    "default_popup" : "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["url_testing.ts"]
+    }
+  ]
+
+}
