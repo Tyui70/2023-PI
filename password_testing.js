@@ -1,21 +1,33 @@
 function checkPasswordStrength(password) {
-    const patterns = {
-        veryWeak: /^.{1,5}$/, // Matches passwords of 1 to 5 characters
-        weak: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{6,9}$/, // Matches passwords with lower, upper, digit & special, 6-9 chars
-        medium: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{10,}$/, // Matches passwords with lower, upper, digit & special, 10+ chars
-        strong: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/ // Matches passwords with lower, upper, digit, special, 12+ chars
-    };
+    // Define criteria for password strength
+    const minLength = 8;
+    const minLowercase = 1;
+    const minUppercase = 1;
+    const minNumbers = 1;
+    const minSpecialChars = 1;
 
-    if (patterns.strong.test(password)) {
-        return "Strong";
-    } else if (patterns.medium.test(password)) {
-        return "Medium";
-    } else if (patterns.weak.test(password)) {
-        return "Weak";
-    } else if (patterns.veryWeak.test(password)) {
-        return "Very Weak";
+    // Regular expressions for checking criteria
+    const lowercaseRegex = /[a-z]/g;
+    const uppercaseRegex = /[A-Z]/g;
+    const numberRegex = /[0-9]/g;
+    const specialCharRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/g;
+
+    // Check password against criteria
+    const lengthIsValid = password.length >= minLength;
+    const hasLowercase = password.match(lowercaseRegex)?.length >= minLowercase;
+    const hasUppercase = password.match(uppercaseRegex)?.length >= minUppercase;
+    const hasNumbers = password.match(numberRegex)?.length >= minNumbers;
+    const hasSpecialChars = password.match(specialCharRegex)?.length >= minSpecialChars;
+
+    // Determine password strength based on criteria met
+    if (!lengthIsValid) {
+        return "very weak";
+    } else if (hasLowercase && hasUppercase && hasNumbers && hasSpecialChars) {
+        return "strong";
+    } else if ((hasLowercase && hasUppercase && hasNumbers) || (hasLowercase && hasUppercase && hasSpecialChars) || (hasLowercase && hasNumbers && hasSpecialChars) || (hasUppercase && hasNumbers && hasSpecialChars)) {
+        return "medium";
     } else {
-        return "Invalid";
+        return "weak";
     }
 }
 
