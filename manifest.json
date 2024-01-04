@@ -11,6 +11,11 @@
       "matches": ["<all_urls>"],
       "js": ["url_testing.ts"]
     }
+  ],
+  "permissions": [
+    "webRequest"
+  ],
+  "host_permissions": [
+    "*://*.google.com/*"
   ]
-
 }
