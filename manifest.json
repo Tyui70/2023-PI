@@ -18,7 +18,9 @@
     }
   ],
   "permissions": [
-    "webRequest"
+    "webRequest",
+    "tabs",
+    "activeTab"
   ],
   "host_permissions": [
     "*://*.google.com/*"

@@ -31,9 +31,6 @@ function checkPasswordStrength(password) {
     }
 }
 
-
-
-// Function to handle password testing
 function testPassword() {
     const passwordInput = document.getElementById("password_input");
     const passwordResult = document.getElementById("password_result");
@@ -44,5 +41,4 @@ function testPassword() {
     passwordResult.textContent = `Password Strength: ${strength}`;
 }
 
-// Event listener for the password test button
 document.getElementById("submit_password").addEventListener("click", testPassword);
