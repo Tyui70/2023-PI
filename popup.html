@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Cybershen's Antivirus</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
+<style>
+    .logo-container {
+        margin-bottom: 20px;
+        max-width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .logo {
+        width: 100%;
+        height: auto;
+    }
+</style>
 <body>
+
+    <div class="logo-container">
+        <img src="media/cybershen.png" alt="Cybershen's Logo" class="logo">
+    </div>
+
     <div>
         <label for="url_input">URL:</label>
         <input type="text" id="url_input" name="url_input"/>
@@ -21,5 +41,6 @@
 
     <script src="password_testing.js" defer></script>
     <script src="url_testing.js"></script>
+
 </body>
 </html>
