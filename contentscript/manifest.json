@@ -1,0 +1,16 @@
+{
+  "name": "My extension test",
+  "version": "0.01",
+  "description": "My extension test for understanding the background.js and contentScript.js",
+  "author" : "Lazare Bordereaux",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ]
+}
