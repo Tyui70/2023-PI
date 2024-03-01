@@ -5,4 +5,9 @@ function showUsername() {
     });
 }
 
+chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    var currentUrl = tabs[0].url;
+    document.getElementById("url_input").value = currentUrl;
+});
+
 document.getElementById("UsernameBtn").addEventListener("click", showUsername);
