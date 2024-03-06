@@ -38,12 +38,26 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 document.addEventListener('DOMContentLoaded', function () {
     var checkButton = document.getElementById('submit_url');
     var urlInput = document.getElementById('url_input');
-    if (checkButton) {
+    if (checkButton && (urlInput === null || urlInput === void 0 ? void 0 : urlInput.textContent) != null) {
         checkButton.addEventListener("click", function () {
             blacklist_testing(urlInput.value);
         });
     }
 });
+//Le code marche tout aussi bien sans cette fonction ?
+/*
+document.addEventListener('DOMContentLoaded', function () {
+    // Retrieve the URL from the <p> field
+    const urlElement = document.getElementById('Link_url');
+    const url = urlElement?.textContent;
+
+    // Call your function with the retrieved URL
+    if (url !== null && url !== undefined) {
+        blacklist_testing(url);
+    }
+});
+
+ */
 function blacklist_testing(urlToTest) {
     return __awaiter(this, void 0, void 0, function () {
         var apiKey, requestBody, response, responseData, error_1;
@@ -82,29 +96,32 @@ function blacklist_testing(urlToTest) {
                     // Vérifier si la réponse de l'API contient des menaces
                     if (responseData.matches && responseData.matches.length > 0) {
                         console.log('Attention site dangereux');
-                        afficherMessage("Attention site dangereux");
+                        afficherMessage("Attention site dangereux", "red");
                     }
                     else {
                         console.log('Site sécurisé');
-                        afficherMessage("Site sécurisé");
+                        afficherMessage("Site sécurisé", "green");
                     }
                     return [3 /*break*/, 4];
                 case 3:
                     console.error('Erreur lors de la requête Safe Browsing :', response.statusText);
+                    afficherMessage("Une erreur est survenue", "orange");
                     _a.label = 4;
                 case 4: return [3 /*break*/, 6];
                 case 5:
                     error_1 = _a.sent();
                     console.error('Erreur lors de la requête Safe Browsing :', error_1);
+                    afficherMessage("Une erreur est survenue", "orange");
                     return [3 /*break*/, 6];
                 case 6: return [2 /*return*/];
             }
         });
     });
 }
-function afficherMessage(message) {
+function afficherMessage(message, couleur) {
     var resultElement = document.getElementById('resultat');
     if (resultElement) {
         resultElement.innerHTML = message;
+        resultElement.style.color = couleur; //on change la couleur
     }
 }

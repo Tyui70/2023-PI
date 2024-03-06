@@ -6,50 +6,38 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<style>
-    .logo-container {
-        margin-bottom: 20px;
-        max-width: 200px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .logo {
-        width: 100%;
-        height: auto;
-    }
-</style>
 <body>
 
     <div class="logo-container">
         <img src="media/cybershen.png" alt="Cybershen's Logo" class="logo">
     </div>
 
-    <!-- Partie url automatique  -->
+    <!-- Partie url automatique/manuelle  -->
 
-    <p id="Link_url">A</p>
+        <div>
+            <label for="url_input">URL:</label>
+            <input type="text" id="url_input" name="url_input"/>
 
-    <!-- Partie url manuelle  -->
+            <div class="conteneur">
+                <button id="submit_url" class="item large"> Test the URL </button>
+                <button id="clear_cache" class="item small">Clear</button>
+            </div>
+            <label id="resultat"></label>
 
-    <div>
-        <label for="url_input">URL:</label>
-        <input type="text" id="url_input" name="url_input"/>
-        <button id="submit_url"> Test the URL </button>
-        <label id="resultat"></label>
+        </div>
 
-    </div>
 
     <!-- Partie mot de passe  -->
 
     <div>
         <label for="password_input">Password:</label>
         <input type="password" id="password_input" name="password_input"/>
-        <button id="submit_password">Test the Password</button>
+        <button id="submit_password" class="item large">Test the Password</button>
         <label id="password_result"></label>
     </div>
 
     <div>
-        <button id="UsernameBtn">Show User</button>
+        <button id="UsernameBtn" class="item large">Show User</button>
         <label id="messageReceived"></label>
     </div>
 

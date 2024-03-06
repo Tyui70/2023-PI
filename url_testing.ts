@@ -1,13 +1,29 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     const checkButton = document.getElementById('submit_url');
     const urlInput = document.getElementById('url_input') as HTMLInputElement;
 
-    if (checkButton) {
+    if (checkButton && urlInput?.textContent != null) {
         checkButton.addEventListener("click", function() {
             blacklist_testing(urlInput.value);
         });
     }
 });
+
+//Le code marche tout aussi bien sans cette fonction ?
+/*
+document.addEventListener('DOMContentLoaded', function () {
+    // Retrieve the URL from the <p> field
+    const urlElement = document.getElementById('Link_url');
+    const url = urlElement?.textContent;
+
+    // Call your function with the retrieved URL
+    if (url !== null && url !== undefined) {
+        blacklist_testing(url);
+    }
+});
+
+ */
 
 async function blacklist_testing(urlToTest: string) {
     try {
@@ -46,24 +62,28 @@ async function blacklist_testing(urlToTest: string) {
             // Vérifier si la réponse de l'API contient des menaces
             if (responseData.matches && responseData.matches.length > 0) {
                 console.log('Attention site dangereux');
-                afficherMessage("Attention site dangereux");
+                afficherMessage("Attention site dangereux","red");
             } else {
                 console.log('Site sécurisé');
-                afficherMessage("Site sécurisé");
+                afficherMessage("Site sécurisé","green");
             }
         } else {
             console.error('Erreur lors de la requête Safe Browsing :', response.statusText);
+            afficherMessage("Une erreur est survenue","orange");
         }
     } catch (error) {
         console.error('Erreur lors de la requête Safe Browsing :', error);
+        afficherMessage("Une erreur est survenue","orange");
     }
 }
 
-function afficherMessage(message: string) {
+function afficherMessage(message: string, couleur:string) {
 
     const resultElement = document.getElementById('resultat');
 
     if (resultElement) {
         resultElement.innerHTML = message;
+        resultElement.style.color = couleur; //on change la couleur
     }
 }
+

@@ -5,12 +5,23 @@ body {
     padding: 10px;
 }
 
+.logo-container {
+    margin-bottom: 20px;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+}
+
 button {
     display: block;
-    width: 80%;
     height: 25%;
     padding: 6px;
-    margin: 10px 0;
+    margin: 10px 5px;
     text-align: center;
     font-size: 12px;
     font-weight: bold;
@@ -24,4 +35,16 @@ button {
 
 button:hover {
     background-color: #3367d6;
+}
+
+.conteneur {
+    display: flex;
+}
+
+.large {
+    flex-grow: 2;
+}
+
+.small {
+    flex-grow: 1;
 }
