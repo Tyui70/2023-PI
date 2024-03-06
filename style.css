@@ -48,3 +48,7 @@ button:hover {
 .small {
     flex-grow: 1;
 }
+
+.centered{
+    margin-top: 15px;
+}

@@ -19,8 +19,8 @@
             <input type="text" id="url_input" name="url_input"/>
 
             <div class="conteneur">
-                <button id="submit_url" class="item large"> Test the URL </button>
-                <button id="clear_cache" class="item small">Clear</button>
+                <button id="submit_url" class="large"> Test the URL </button>
+                <button id="clear_cache" class="small">Clear</button>
             </div>
             <label id="resultat"></label>
 
@@ -32,7 +32,11 @@
     <div>
         <label for="password_input">Password:</label>
         <input type="password" id="password_input" name="password_input"/>
-        <button id="submit_password" class="item large">Test the Password</button>
+        <div class="conteneur">
+            <button id="submit_password" class="large">Test the Password</button>
+            <button id="clear_cache_pwd" class="small centered">Clear</button>
+        </div>
+
         <label id="password_result"></label>
     </div>
 
@@ -42,8 +46,8 @@
     </div>
 
     <script src="password_testing.js" defer></script>
-    <script src="url_testing.js"></script>
-    <script src="./popup.js"></script>
+    <script src="../url_testing.js"></script>
+    <script src="popup.js"></script>
 
 </body>
 </html>

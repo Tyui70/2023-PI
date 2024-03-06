@@ -16,4 +16,10 @@ document.getElementById("clear_cache").addEventListener("click", function() {
     document.getElementById('resultat').textContent ="";
 });
 
+document.getElementById("clear_cache_pwd").addEventListener("click", function() {
+    document.getElementById("password_input").value = "";
+    //on cache le résultat
+    document.getElementById('password_result').textContent ="";
+});
+
 document.getElementById("UsernameBtn").addEventListener("click", showUsername);
