@@ -44,20 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
-//Le code marche tout aussi bien sans cette fonction ?
-/*
-document.addEventListener('DOMContentLoaded', function () {
-    // Retrieve the URL from the <p> field
-    const urlElement = document.getElementById('Link_url');
-    const url = urlElement?.textContent;
-
-    // Call your function with the retrieved URL
-    if (url !== null && url !== undefined) {
-        blacklist_testing(url);
-    }
-});
-
- */
 function blacklist_testing(urlToTest) {
     return __awaiter(this, void 0, void 0, function () {
         var apiKey, requestBody, response, responseData, error_1;

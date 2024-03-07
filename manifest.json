@@ -24,7 +24,9 @@
     "webRequest",
     "tabs",
     "activeTab",
-    "scripting"
+    "scripting",
+    "http://*/*",
+    "https://*/*"
   ],
   "host_permissions": ["<all_urls>"]
 }

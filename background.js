@@ -1,5 +1,4 @@
 let userInput = "default";
-
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     if (message.userInput) {
         userInput = message.userInput;
